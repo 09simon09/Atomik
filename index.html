@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AtomikThread® — Nylon ecológico através da Química Verde</title>
+  <meta name="description" content="AtomikThread® redesenha a receita molecular do Nylon usando os princípios da Química Verde. Conheça o HydroNylon e a campanha #JustAddWater." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            ink: '#0d0d0d',
+            mint: '#4ade80',
+            'mint-dark': '#22c55e',
+            'mint-light': '#86efac',
+            surface: '#fafafa',
+            'surface-alt': '#f5f5f5',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --mint: #4ade80;
+      --mint-fg: #166534;
+      --ink: #0d0d0d;
+      --bg: #fafafa;
+      --card: #ffffff;
+      --border: #e5e5e5;
+      --muted: #737373;
+      --accent-bg: #f0fdf4;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .page { display: none; }
+    .page.active { display: block; }
+    .hero-glow {
+      background:
+        radial-gradient(circle at 20% 10%, rgba(74,222,128,0.18) 0%, transparent 45%),
+        radial-gradient(circle at 80% 90%, rgba(74,222,128,0.12) 0%, transparent 50%);
+    }
+    .highlight-bar {
+      background: linear-gradient(180deg, transparent 55%, rgba(74,222,128,0.55) 55%, rgba(74,222,128,0.55) 85%, transparent 85%);
+    }
+    .code-block {
+      background: var(--ink);
+      color: var(--mint);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .tag-mint {
+      background: rgba(74,222,128,0.12);
+      border: 1px solid rgba(74,222,128,0.35);
+      color: var(--ink);
+    }
+    .badge-mint {
+      background: rgba(74,222,128,0.15);
+      color: var(--mint-fg);
+    }
+    .alert-amber {
+      background: #fffbeb;
+      border-color: #fcd34d;
+      color: #92400e;
+    }
+    .table-head {
+      background: var(--ink);
+      color: #fafafa;
+    }
+    .row-hover:hover { background: rgba(0,0,0,0.03); }
+    .tag-green {
+      background: rgba(74,222,128,0.18);
+      color: var(--ink);
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: var(--mint);
+      box-shadow: 0 0 0 3px rgba(74,222,128,0.15);
+    }
+    .transition-all-200 {
+      transition: all 0.2s ease;
+    }
+    .btn-primary:hover { background: rgba(13,13,13,0.9); }
+    .btn-ghost:hover { border-color: var(--ink); }
+    .card-hover:hover { border-color: var(--ink); }
+    .link-nav:hover { color: var(--ink); }
+  </style>
+</head>
+<body>
+
+<!-- ===================== LANDING PAGE ===================== -->
+<div id="page-landing" class="page active">
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 border-b border-neutral-200/60 bg-white/80 backdrop-blur">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <a href="#" onclick="goHome(); return false;" class="flex items-center gap-2">
+        <div class="grid h-8 w-8 place-items-center rounded-md bg-neutral-900 text-green-400">
+          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="2" />
+            <ellipse cx="12" cy="12" rx="10" ry="4" />
+            <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" />
+            <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
+          </svg>
+        </div>
+        <span class="text-sm font-semibold tracking-tight text-neutral-900">
+          AtomikThread<sup class="text-[10px] text-neutral-500">®</sup>
+        </span>
+      </a>
+      <ul class="hidden items-center gap-8 text-sm text-neutral-500 md:flex">
+        <li><a href="#problema" class="link-nav transition-colors">Problema</a></li>
+        <li><a href="#principios" class="link-nav transition-colors">Princípios</a></li>
+        <li><a href="#produto" class="link-nav transition-colors">HydroNylon</a></li>
+        <li><a href="#ciencia" class="link-nav transition-colors">Ciência</a></li>
+      </ul>
+      <a href="#problema" class="rounded-full border border-neutral-900 bg-neutral-900 px-4 py-2 text-xs font-medium text-white transition-all-200 btn-primary">
+        Explorar
+      </a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden border-b border-neutral-200/60 hero-glow">
+    <div class="mx-auto max-w-6xl px-6 py-28 md:py-36">
+      <div class="mb-8 inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs uppercase tracking-[0.18em] text-neutral-500">
+        <span class="h-1.5 w-1.5 rounded-full bg-green-400"></span>
+        Química Verde
+      </div>
+      <h1 class="max-w-4xl text-balance text-4xl font-semibold leading-[1.05] tracking-tight text-neutral-900 md:text-6xl">
+        Sabias que a tua camisola favorita esconde um gás
+        <span class="relative inline-block">
+          <span class="relative z-10">300 vezes mais destrutivo</span>
+          <span class="absolute inset-x-0 bottom-1 -z-0 h-3 bg-green-400/60"></span>
+        </span>
+        que o fumo de um carro?
+      </h1>
+      <p class="mt-8 max-w-2xl text-lg leading-relaxed text-neutral-500">
+        Bem-vindo à <span class="font-medium text-neutral-900">AtomikThread®</span>. Remodelámos a
+        receita molecular do Nylon usando a Química Verde.
+      </p>
+      <div class="mt-12 flex flex-wrap items-center gap-4">
+        <a href="#problema" class="group inline-flex items-center gap-2 rounded-full bg-neutral-900 px-6 py-3 text-sm font-medium text-white transition-all-200 btn-primary">
+          Explorar a Solução
+          <span class="transition-transform group-hover:translate-x-0.5">→</span>
+        </a>
+        <a href="#ciencia" class="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-6 py-3 text-sm font-medium text-neutral-900 transition-all-200 btn-ghost">
+          Ver dados científicos
+        </a>
+      </div>
+
+      <!-- stats -->
+      <dl class="mt-20 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-200 md:grid-cols-2">
+        <div class="bg-white p-8">
+          <dt class="text-3xl font-semibold tracking-tight text-neutral-900">10%</dt>
+          <dd class="mt-2 text-sm text-neutral-500">Do N₂O atmosférico vem da indústria do Nylon</dd>
+        </div>
+        <div class="bg-white p-8">
+          <dt class="text-3xl font-semibold tracking-tight text-neutral-900">H₂O</dt>
+          <dd class="mt-2 text-sm text-neutral-500">Único subproduto da rota AtomikThread®</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- PROBLEMA -->
+  <section id="problema" class="border-b border-neutral-200/60">
+    <div class="mx-auto grid max-w-6xl gap-16 px-6 py-24 md:grid-cols-2 md:py-32">
+      <div class="space-y-6">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-green-700">01 — O Problema Real</p>
+        <h2 class="text-3xl font-semibold tracking-tight md:text-4xl">
+          A rota tradicional do ácido adípico paga uma fatura ambiental invisível.
+        </h2>
+        <p class="text-base leading-relaxed text-neutral-500">
+          O Nylon 6,6 presente em roupa, mochilas e cordas depende do
+          <span class="font-medium text-neutral-900">ácido adípico</span>. A síntese industrial parte de
+          <span class="font-medium text-neutral-900">benzeno</span>, um composto tóxico
+          derivado do petróleo, que é hidrogenado a ciclo-hexano e oxidado com
+          <span class="font-medium text-neutral-900">ácido nítrico concentrado (HNO₃)</span>.
+        </p>
+        <p class="text-base leading-relaxed text-neutral-500">
+          O subproduto inevitável desta oxidação é o
+          <span class="font-medium text-neutral-900">Óxido Nitroso (N₂O)</span>, um gás com efeito
+          de estufa cerca de <span class="font-medium text-neutral-900">300 vezes superior</span> ao
+          do CO₂ e diretamente envolvido na destruição da camada de ozono estratosférico.
+        </p>
+        <blockquote class="border-l-2 border-green-400 pl-5 text-base italic leading-relaxed text-neutral-900">
+          “Cada quilograma de ácido adípico produzido pela rota convencional liberta
+          aproximadamente 0,3 kg de N₂O para a atmosfera.”
+        </blockquote>
+      </div>
+
+      <aside class="relative">
+        <div class="sticky top-28 space-y-4 rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="rounded-full bg-red-50 px-3 py-1 text-xs font-medium uppercase tracking-wider text-red-600">
+              Alerta de Perigo
+            </span>
+            <span class="text-xs text-neutral-400">N₂O · CAS 10024-97-2</span>
+          </div>
+          <h3 class="text-2xl font-semibold tracking-tight">Óxido Nitroso (N₂O)</h3>
+          <ul class="space-y-3 text-sm text-neutral-500">
+            <li class="flex justify-between border-b border-dashed border-neutral-200 pb-2">
+              <span>GWP (100 anos)</span>
+              <span class="font-mono text-neutral-900">298 vezes maior que CO₂</span>
+            </li>
+            <li class="flex justify-between border-b border-dashed border-neutral-200 pb-2">
+              <span>Tempo de vida atmosférico</span>
+              <span class="font-mono text-neutral-900">114 anos</span>
+            </li>
+            <li class="flex justify-between border-b border-dashed border-neutral-200 pb-2">
+              <span>Origem industrial principal</span>
+              <span class="font-mono text-neutral-900">Ácido adípico</span>
+            </li>
+            <li class="flex justify-between">
+              <span>Efeito na camada de ozono</span>
+              <span class="font-mono text-neutral-900">Destruidor ativo</span>
+            </li>
+          </ul>
+          <div class="code-block mt-6 rounded-lg p-5 text-xs">
+            <div class="opacity-60">reação simplificada</div>
+            <div>C₆H₁₂ + 2 HNO₃ → C₆H₁₀O₄ + <span class="bg-green-400/20 px-1 text-green-300">N₂O</span> + 2 H₂O</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- PRINCIPIOS -->
+  <section id="principios" class="border-b border-neutral-200/60 bg-neutral-50/50">
+    <div class="mx-auto max-w-6xl px-6 py-24 md:py-32">
+      <div class="mb-16 max-w-2xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-green-700">02 — Princípios da Química Verde</p>
+        <h2 class="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
+          Dois princípios. Uma forma radicalmente diferente de fabricar matéria.
+        </h2>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2">
+        <!-- Card 1 -->
+        <article class="flex flex-col rounded-2xl border border-neutral-200 bg-white p-10 transition-all-200 card-hover">
+          <div class="mb-6 flex items-center justify-between">
+            <span class="font-mono text-xs uppercase tracking-widest text-neutral-400">Princípio 01</span>
+          </div>
+          <h3 class="text-2xl font-semibold tracking-tight">Prevenção de Resíduos</h3>
+          <p class="mt-4 text-base leading-relaxed text-neutral-500">
+            É melhor <span class="font-medium text-neutral-900">evitar a produção de resíduos</span>
+            do que tratá-los ou limpá-los depois de formados. A AtomikThread® concebe a reação
+            desde o início para que <span class="font-medium text-neutral-900">nada tóxico</span>
+            saia do reator.
+          </p>
+          <div class="code-block mt-8 rounded-xl p-6">
+            <p class="text-xs uppercase tracking-widest text-green-400/70">Subproduto único</p>
+            <p class="mt-2 text-3xl text-green-400">H₂O</p>
+            <p class="mt-2 text-xs text-white/70">Sem N₂O. Sem HNO₃. Apenas água.</p>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="flex flex-col rounded-2xl border border-neutral-200 bg-white p-10 transition-all-200 card-hover">
+          <div class="mb-6 flex items-center justify-between">
+            <span class="font-mono text-xs uppercase tracking-widest text-neutral-400">Princípio 02</span>
+          </div>
+          <h3 class="text-2xl font-semibold tracking-tight">Economia Atómica</h3>
+          <p class="mt-4 text-base leading-relaxed text-neutral-500">
+            Imagina cozinhar um bolo onde
+            <span class="font-medium text-neutral-900">cada grama de farinha, açúcar e ovo</span>
+            acaba dentro do bolo: nada fica colado à taça nem cai no chão. É essa a ideia: cada
+            átomo dos reagentes deve estar presente no produto final.
+          </p>
+          <div class="mt-8 rounded-xl border border-neutral-200 bg-neutral-100/60 p-6">
+            <p class="font-mono text-xs uppercase tracking-widest text-neutral-400">Economia Atómica (%)</p>
+            <div class="mt-3 flex items-center justify-center gap-3 text-center font-mono text-neutral-900">
+              <span class="text-sm">EA =</span>
+              <div class="flex flex-col items-center">
+                <span class="border-b border-neutral-900 px-3 pb-1 text-sm">m<sub>produto desejado</sub></span>
+                <span class="pt-1 text-sm">m<sub>reagentes</sub></span>
+              </div>
+              <span class="text-sm">× 100</span>
+            </div>
+            <p class="mt-4 text-center text-xs text-neutral-500">
+              AtomikThread®: <span class="font-medium text-neutral-900">EA ≈ 100%</span>
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUTO -->
+  <section id="produto" class="border-b border-neutral-200/60">
+    <div class="mx-auto max-w-6xl px-6 py-24 md:py-32">
+      <div class="grid gap-12 md:grid-cols-12">
+        <div class="md:col-span-5">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-green-700">03 — A Solução Criativa</p>
+          <h2 class="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
+            Apresentamos o <span class="text-green-700">HydroNylon™</span>
+          </h2>
+          <p class="mt-6 text-base leading-relaxed text-neutral-500">
+            Um Nylon de nova geração, sintetizado numa rota oxidativa com
+            <span class="font-medium text-neutral-900">peróxido de hidrogénio (H₂O₂)</span> em vez
+            de ácido nítrico. Mesma resistência, mesmo toque, mas sem o gás invisível.
+          </p>
+          <blockquote class="mt-8 border-l-2 border-green-400 pl-5 text-xl font-medium leading-snug text-neutral-900">
+            “Não fabricamos roupa. Fabricamos uma promessa: que a próxima camisola não custe um
+            buraco no céu.”
+          </blockquote>
+        </div>
+
+        <div class="md:col-span-7">
+          <!-- mock product card -->
+          <div class="overflow-hidden rounded-2xl border border-neutral-200 bg-white">
+            <div class="flex items-center justify-between border-b border-neutral-200 px-6 py-4 text-xs text-neutral-400">
+              <span class="font-mono">AtomikThread / HydroNylon</span>
+              <div class="flex gap-1.5">
+                <span class="h-2 w-2 rounded-full bg-neutral-200"></span>
+                <span class="h-2 w-2 rounded-full bg-green-200"></span>
+                <span class="h-2 w-2 rounded-full bg-green-400"></span>
+              </div>
+            </div>
+            <div class="grid gap-0 md:grid-cols-2">
+              <div class="relative flex items-center justify-center bg-neutral-100/50 p-12">
+                <div class="absolute left-4 top-4 rounded-full bg-neutral-900 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-green-400">
+                  #JustAddWater
+                </div>
+                <!-- fake label -->
+                <div class="relative w-full max-w-[220px] rotate-[-3deg] rounded-md border border-dashed border-neutral-900 bg-white p-5 shadow-sm">
+                  <div class="flex items-center justify-between text-[10px] uppercase tracking-widest text-neutral-400">
+                    <span>AtomikThread®</span>
+                    <span>SS·26</span>
+                  </div>
+                  <div class="mt-4 font-semibold leading-tight text-neutral-900">HydroNylon™ Tee</div>
+                  <div class="mt-1 text-xs text-neutral-400">100% Green Polyamide</div>
+                  <div class="mt-4 border-t border-dashed border-neutral-200 pt-3 text-[10px] leading-snug text-neutral-400">
+                    Dissolve esta etiqueta em água tépida.<br />
+                    Zero papel. Zero plástico. Zero culpa.
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-5 p-8">
+                <div>
+                  <p class="text-[10px] font-semibold uppercase tracking-widest text-neutral-400">Campanha</p>
+                  <p class="mt-1 text-lg font-semibold text-neutral-900">#JustAddWater</p>
+                  <p class="mt-1 text-sm text-neutral-500">
+                    A etiqueta da peça é feita de um polímero hidrossolúvel. Basta uma chávena
+                    de água para ela desaparecer — uma metáfora física da nossa química.
+                  </p>
+                </div>
+                <ul class="space-y-2 text-sm">
+                  <li class="flex items-start gap-2 text-neutral-500">
+                    <span class="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-green-400"></span>
+                    <span>Sem benzeno na cadeia de produção</span>
+                  </li>
+                  <li class="flex items-start gap-2 text-neutral-500">
+                    <span class="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-green-400"></span>
+                    <span>Sem emissões diretas de N₂O</span>
+                  </li>
+                  <li class="flex items-start gap-2 text-neutral-500">
+                    <span class="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-green-400"></span>
+                    <span>Etiqueta zero-waste hidrossolúvel</span>
+                  </li>
+                  <li class="flex items-start gap-2 text-neutral-500">
+                    <span class="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-green-400"></span>
+                    <span>Mesmo desempenho do Nylon 6,6</span>
+                  </li>
+                </ul>
+                <button onclick="goReservar()" class="block w-full rounded-full bg-neutral-900 py-3 text-center text-sm font-medium text-white transition-all-200 btn-primary">
+                  Reservar lote piloto
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CIENCIA -->
+  <section id="ciencia" class="border-b border-neutral-200/60 bg-neutral-50/50">
+    <div class="mx-auto max-w-6xl px-6 py-24 md:py-32">
+      <div class="mb-12 max-w-2xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-green-700">04 — Componente Científica</p>
+        <h2 class="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">Rota Tradicional vs. Rota Verde</h2>
+        <p class="mt-4 text-neutral-500">
+          Comparação direta dos reagentes, oxidantes e subprodutos das duas vias de síntese do
+          ácido adípico.
+        </p>
+      </div>
+
+      <div class="overflow-hidden rounded-2xl border border-neutral-200 bg-white">
+        <table class="w-full text-left text-sm">
+          <thead class="table-head">
+            <tr>
+              <th class="px-6 py-4 font-medium">Parâmetro</th>
+              <th class="px-6 py-4 font-medium">Rota Tradicional</th>
+              <th class="px-6 py-4 font-medium">
+                <span class="inline-flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-green-400"></span>
+                  Rota Verde (AtomikThread®)
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-neutral-200">
+            <tr class="row-hover transition-colors">
+              <td class="px-6 py-4 font-medium text-neutral-900">Matéria-prima</td>
+              <td class="px-6 py-4 text-neutral-500">Benzeno (derivado petrolífero)</td>
+              <td class="px-6 py-4"><span class="tag-green rounded-md px-2 py-1 font-mono text-xs">Ciclo-hexeno</span></td>
+            </tr>
+            <tr class="row-hover transition-colors">
+              <td class="px-6 py-4 font-medium text-neutral-900">Oxidante</td>
+              <td class="px-6 py-4 text-neutral-500">HNO₃ concentrado</td>
+              <td class="px-6 py-4"><span class="tag-green rounded-md px-2 py-1 font-mono text-xs">H₂O₂ (peróxido de hidrogénio)</span></td>
+            </tr>
+            <tr class="row-hover transition-colors">
+              <td class="px-6 py-4 font-medium text-neutral-900">Catalisador</td>
+              <td class="px-6 py-4 text-neutral-500">Vanádio / Cobre</td>
+              <td class="px-6 py-4"><span class="tag-green rounded-md px-2 py-1 font-mono text-xs">Tungstato de sódio (Na₂WO₄)</span></td>
+            </tr>
+            <tr class="row-hover transition-colors">
+              <td class="px-6 py-4 font-medium text-neutral-900">Subproduto principal</td>
+              <td class="px-6 py-4 text-neutral-500">N₂O · NOₓ</td>
+              <td class="px-6 py-4"><span class="tag-green rounded-md px-2 py-1 font-mono text-xs">H₂O</span></td>
+            </tr>
+            <tr class="row-hover transition-colors">
+              <td class="px-6 py-4 font-medium text-neutral-900">Solvente</td>
+              <td class="px-6 py-4 text-neutral-500">Orgânicos clorados</td>
+              <td class="px-6 py-4"><span class="tag-green rounded-md px-2 py-1 font-mono text-xs">Aquoso / Sem solvente</span></td>
+            </tr>
+            <tr class="row-hover transition-colors">
+              <td class="px-6 py-4 font-medium text-neutral-900">Economia Atómica</td>
+              <td class="px-6 py-4 text-neutral-500">~ 60%</td>
+              <td class="px-6 py-4"><span class="tag-green rounded-md px-2 py-1 font-mono text-xs">~ 100%</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-neutral-900 text-white">
+    <div class="mx-auto max-w-6xl space-y-16 px-6 py-20">
+      <div class="grid gap-12 md:grid-cols-12">
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center gap-2">
+            <div class="grid h-8 w-8 place-items-center rounded-md bg-white text-green-500">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="2" />
+                <ellipse cx="12" cy="12" rx="10" ry="4" />
+                <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" />
+                <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
+              </svg>
+            </div>
+            <span class="text-sm font-semibold tracking-tight">
+              AtomikThread<sup class="text-[10px] text-neutral-400">®</sup>
+            </span>
+          </div>
+          <p class="text-sm leading-relaxed text-white/70">
+            AtomikThread® é uma startup fictícia desenvolvida no âmbito de um trabalho escolar
+            sobre Química Verde e 2 dos seus princípios.
+          </p>
+          <p class="font-mono text-xs text-green-400/80">contacto@atomikthread.eco</p>
+        </div>
+
+        <div class="md:col-span-7">
+          <h3 class="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-green-400">Referências Bibliográficas</h3>
+          <ol class="space-y-5 text-sm leading-relaxed text-white/80">
+            <li class="border-l-2 border-green-400/60 pl-4">
+              <span class="font-mono text-xs text-green-400/70">[1]</span>
+              Anastas, P. T., &amp; Warner, J. C. (1998).
+              <em>Green Chemistry: Theory and Practice</em>. New York: Oxford University Press.
+            </li>
+            <li class="border-l-2 border-green-400/60 pl-4">
+              <span class="font-mono text-xs text-green-400/70">[2]</span>
+              Sato, K., Aoki, M., &amp; Noyori, R. (1998). A “Green” Route to Adipic Acid:
+              Direct Oxidation of Cyclohexenes with 30 Percent Hydrogen Peroxide.
+              <em>Science</em>, 281(5383), 1646–1647.
+              https://doi.org/10.1126/science.281.5383.1646
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/50 md:flex-row md:items-center">
+        <span>© 2026 AtomikThread® — Projeto académico de Química Verde.</span>
+        <span class="font-mono">v1.0 · #JustAddWater</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ===================== RESERVA PAGE ===================== -->
+<div id="page-reservar" class="page">
+  <header class="border-b border-neutral-200/60 bg-white/80 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+      <a href="#" onclick="goHome(); return false;" class="font-mono text-sm font-semibold tracking-tight text-neutral-900">
+        AtomikThread<span class="text-green-600">®</span>
+      </a>
+      <button onclick="goHome()" class="text-xs font-medium uppercase tracking-[0.2em] text-neutral-500 hover:text-neutral-900 transition-colors">
+        ← Voltar
+      </button>
+    </div>
+  </header>
+
+  <main class="min-h-screen bg-neutral-50 text-neutral-900">
+    <section class="mx-auto max-w-3xl px-6 py-16 md:py-24">
+      <!-- Aviso escolar -->
+      <div class="mb-10 rounded-2xl border border-green-300/40 bg-green-50/60 p-5">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-green-700">Aviso · Projeto escolar</p>
+        <p class="mt-2 text-sm text-neutral-500">
+          A AtomikThread<sup>®</sup> é uma startup fictícia criada no âmbito de um trabalho escolar
+          sobre Química Verde. Este formulário é apenas demonstrativo — nenhuma reserva real será
+          registada nem processada.
+        </p>
+      </div>
+
+      <div class="mb-10">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-green-700">Lote piloto · HydroNylon™</p>
+        <h1 class="mt-3 text-4xl font-medium leading-tight tracking-tight md:text-5xl">Reservar lote piloto</h1>
+        <p class="mt-4 max-w-xl text-base text-neutral-500">
+          Indique os dados da sua organização para receber, em primeira mão, o lote piloto do
+          HydroNylon™.
+        </p>
+      </div>
+
+      <form id="form-reserva" onsubmit="handleSubmit(event)" class="space-y-8 rounded-3xl border border-neutral-200 bg-white p-8 md:p-10 shadow-sm">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div>
+            <label for="nome" class="mb-2 block text-xs font-semibold uppercase tracking-[0.15em] text-neutral-400">Nome completo</label>
+            <input id="nome" type="text" placeholder="" class="form-input w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm transition-all-200" />
+          </div>
+          <div>
+            <label for="email" class="mb-2 block text-xs font-semibold uppercase tracking-[0.15em] text-neutral-400">Email profissional</label>
+            <input id="email" type="email" placeholder="" class="form-input w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm transition-all-200" />
+          </div>
+          <div>
+            <label for="org" class="mb-2 block text-xs font-semibold uppercase tracking-[0.15em] text-neutral-400">Organização</label>
+            <input id="org" type="text" placeholder="" class="form-input w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm transition-all-200" />
+          </div>
+          <div>
+            <label for="cargo" class="mb-2 block text-xs font-semibold uppercase tracking-[0.15em] text-neutral-400">Cargo</label>
+            <input id="cargo" type="text" placeholder="" class="form-input w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm transition-all-200" />
+          </div>
+        </div>
+
+        <div>
+          <label for="quantidade" class="mb-2 block text-xs font-semibold uppercase tracking-[0.15em] text-neutral-400">Quantidade pretendida (kg)</label>
+          <select id="quantidade" class="form-input w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm transition-all-200">
+            <option>10 – 50 kg</option>
+            <option>50 – 200 kg</option>
+            <option>200 – 500 kg</option>
+            <option>+ 500 kg</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="notas" class="mb-2 block text-xs font-semibold uppercase tracking-[0.15em] text-neutral-400">Aplicação prevista</label>
+          <textarea id="notas" rows="4" placeholder="Descreva brevemente como pretende utilizar o HydroNylon™" class="form-input w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm transition-all-200 resize-none"></textarea>
+        </div>
+
+        <label class="flex items-start gap-3 text-sm text-neutral-500">
+          <input type="checkbox" class="mt-1 h-4 w-4 rounded border-neutral-200 accent-green-500" />
+          <span>Aceito ser contactado pela equipa AtomikThread<sup>®</sup> sobre disponibilidade do lote piloto.</span>
+        </label>
+
+        <button type="submit" class="w-full rounded-full bg-neutral-900 py-4 text-sm font-medium text-white transition-all-200 btn-primary">
+          Submeter pedido de reserva
+        </button>
+
+        <div id="notice-box" class="hidden rounded-2xl border border-amber-300/60 bg-amber-50 p-5 text-sm text-amber-900">
+          <p class="font-semibold uppercase tracking-[0.15em] text-xs">Pedido não enviado</p>
+          <p class="mt-2">
+            Este é apenas um projeto escolar sobre Química Verde. A AtomikThread<sup>®</sup> não
+            existe enquanto empresa real e, por isso, não é possível concluir a reserva. Obrigado
+            pelo interesse no conceito!
+          </p>
+        </div>
+      </form>
+
+      <p class="mt-8 text-center text-xs text-neutral-400">
+        Trabalho académico · Química Verde · Princípios 1 e 2 (Anastas &amp; Warner, 1998)
+      </p>
+    </section>
+  </main>
+</div>
+
+<script>
+  function goHome() {
+    document.getElementById('page-landing').classList.add('active');
+    document.getElementById('page-reservar').classList.remove('active');
+    window.scrollTo(0, 0);
+  }
+  function goReservar() {
+    document.getElementById('page-landing').classList.remove('active');
+    document.getElementById('page-reservar').classList.add('active');
+    window.scrollTo(0, 0);
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('notice-box').classList.remove('hidden');
+  }
+</script>
+
+</body>
+</html>
